@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">OneFin</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_onboarding_title_text">You\'ll never miss \n anything important</string>
+    <string name="first_onboarding_text">Add your favorite currencies to favorites list, \n to always be aware of their \n current status</string>
+    <string name="next_button">Next</string>
+    <string name="second_onboarding_title">Once - for all</string>
+    <string name="Second_onboarding_text">Set one value to see all currencies avaliable</string>
+    <string name="get_started_button">Get Started</string>
 </resources>

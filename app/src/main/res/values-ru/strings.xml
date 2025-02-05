@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">OneFin</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_onboarding_title_text">Вы никогда не пропустите \n самое важное</string>
+    <string name="first_onboarding_text">Добавляйте свои любимые валюты в список избранных, \n что бы всегда быть в курсе их текущего состояния</string>
+    <string name="next_button">Далее</string>
+    <string name="second_onboarding_title">Один раз - для всех</string>
+    <string name="Second_onboarding_text">Установите одно значение, что бы увидеть\nобменный курс для всех остальных валют</string>
+    <string name="get_started_button">Начать</string>
+</resources>
