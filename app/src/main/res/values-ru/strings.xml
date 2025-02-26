@@ -7,4 +7,7 @@
     <string name="second_onboarding_title">Один раз - для всех</string>
     <string name="Second_onboarding_text">Установите одно значение, что бы увидеть\nобменный курс для всех остальных валют</string>
     <string name="get_started_button">Начать</string>
+    <string name="menu_title_currency">Курсы валюты</string>
+    <string name="menu_title_exchange">Обменный курс</string>
+    <string name="menu_title_favorites">Избранные</string>
 </resources>

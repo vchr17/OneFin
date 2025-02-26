@@ -22,7 +22,7 @@ class SecondOnboardingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initClickListeners()
+//        initClickListeners()
     }
 
     override fun onDestroy() {
@@ -31,11 +31,11 @@ class SecondOnboardingFragment : Fragment() {
 
     }
 
-    private fun initClickListeners(){
-        binding.secondOnboardingNextButton.setOnClickListener {
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, CurrencyFragment())
-            }.commit()
-        }
-    }
+//    private fun initClickListeners(){
+//        binding.secondOnboardingNextButton.setOnClickListener {
+//            parentFragmentManager.beginTransaction().apply {
+//                replace(R.id.fragment_container, CurrencyFragment())
+//            }.commit()
+//        }
+//    }
 }

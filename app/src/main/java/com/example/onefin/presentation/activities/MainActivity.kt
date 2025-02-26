@@ -5,33 +5,45 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.onefin.R
 import com.example.onefin.databinding.ActivityMainBinding
-import com.example.onefin.presentation.fragments.FirstOnboardingFragment
 
 class MainActivity : AppCompatActivity() {
-
-    private var binding : ActivityMainBinding? = null
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if(savedInstanceState == null){
-            supportFragmentManager.beginTransaction().add(R.id.fragment_container,
-                FirstOnboardingFragment(), "FirstOnboarding").commit()
-        }
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        initClickListeners()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom - systemBars.bottom
+            )
             insets
         }
-        binding.fragmentContainer
+    }
+
+    private fun initClickListeners() {
+        val bottomNavigationBar = binding.bottomNav
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        navController = navHostFragment.navController
+        bottomNavigationBar.setupWithNavController(navController)
     }
 
     override fun onDestroy() {
-        binding = null
+        _binding = null
         super.onDestroy()
     }
 }
