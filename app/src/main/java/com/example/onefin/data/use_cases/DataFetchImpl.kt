@@ -2,7 +2,6 @@ package com.example.onefin.data.use_cases
 
 import com.example.onefin.data.database.CurrencyApi
 import com.example.onefin.domain.model.Response
-import com.example.onefin.domain.repository.Api
 import com.example.onefin.domain.use_cases.DataFetch
 import retrofit2.Retrofit
 

@@ -1,6 +1,5 @@
 package com.example.onefin.data.use_cases.crud.delete
 
-import com.example.onefin.data.database.MainDao
 import com.example.onefin.domain.repository.MainRepository
 import com.example.onefin.domain.use_cases.crud.delete.DeleteDataUseCase
 

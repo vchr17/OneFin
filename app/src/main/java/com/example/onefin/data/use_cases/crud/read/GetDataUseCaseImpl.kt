@@ -1,6 +1,5 @@
 package com.example.onefin.data.use_cases.crud.read
 
-import com.example.onefin.data.database.MainDao
 import com.example.onefin.domain.model.Money
 import com.example.onefin.domain.repository.MainRepository
 import com.example.onefin.domain.use_cases.crud.read.GetDataUseCase

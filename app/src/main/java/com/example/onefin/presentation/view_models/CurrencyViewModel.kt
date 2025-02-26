@@ -12,9 +12,7 @@ import com.example.onefin.domain.use_cases.crud.delete.DeleteDataUseCase
 import com.example.onefin.domain.use_cases.crud.read.GetDataUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.util.Locale
 
 
 class CurrencyViewModel(
