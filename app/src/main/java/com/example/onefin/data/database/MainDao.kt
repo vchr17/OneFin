@@ -20,7 +20,7 @@ interface MainDao {
     @Query("DELETE FROM CurrencyTable")
     fun deleteData()
 
-    @Query("SELECT * FROM CurrencyTable WHERE isFavourite = 0")
+    @Query("SELECT * FROM CurrencyTable WHERE isFavourite = 1")
     fun getFavourites() : MutableList<Money>
 
 }

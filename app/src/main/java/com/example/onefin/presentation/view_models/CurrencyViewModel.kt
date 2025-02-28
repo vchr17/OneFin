@@ -10,8 +10,10 @@ import com.example.onefin.domain.use_cases.DataFetch
 import com.example.onefin.domain.use_cases.crud.create.AddDataUseCase
 import com.example.onefin.domain.use_cases.crud.delete.DeleteDataUseCase
 import com.example.onefin.domain.use_cases.crud.read.GetDataUseCase
+import com.example.onefin.domain.use_cases.crud.update.SetFavouriteUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 
 
@@ -19,7 +21,8 @@ class CurrencyViewModel(
     private val fetchData: DataFetch,
     private val addData: AddDataUseCase,
     private val readData: GetDataUseCase,
-    private val deleteData: DeleteDataUseCase
+    private val deleteData: DeleteDataUseCase,
+    private val setFavourite: SetFavouriteUseCase
 ) : ViewModel() {
     private val _liveData = MutableLiveData<MutableList<Money>>()
     val liveData: LiveData<MutableList<Money>> get() = _liveData
@@ -61,6 +64,11 @@ class CurrencyViewModel(
             }
     }
 
+    fun setFavorite(name: String) = viewModelScope.launch(Dispatchers.IO) {
+        setFavourite.invoke(name)
+    }
+
+
     private suspend fun isDbEmpty(): Boolean {
         val data = readData.invoke()
         if (data.isEmpty()) {
@@ -74,7 +82,7 @@ class CurrencyViewModel(
 
     private suspend fun ifDataIsFresh(): Boolean {
         /*
-        Нужно свести все к UTC формату
+        Нужно свести все к UTC формата
          */
         val data = readData.invoke()
         val stamp = data[0].stamp * 1000L

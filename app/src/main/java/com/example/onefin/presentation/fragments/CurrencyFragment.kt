@@ -20,7 +20,6 @@ class CurrencyFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel by viewModel<CurrencyViewModel>()
     private val list = mutableListOf<Money>()
-    private var adapter = CurrencyAdapter(list)
 
 
     override fun onCreateView(
@@ -40,7 +39,7 @@ class CurrencyFragment : Fragment() {
     private fun initAdapter() {
         binding.rcView.layoutManager = LinearLayoutManager(requireContext())
         binding.rcView.setHasFixedSize(true)
-        binding.rcView.adapter = adapter
+        binding.rcView.adapter = CurrencyAdapter(list, viewModel)
 
     }
 
