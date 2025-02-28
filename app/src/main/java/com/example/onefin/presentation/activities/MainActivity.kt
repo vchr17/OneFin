@@ -26,8 +26,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.fragmentContainer.visibility = View.GONE
-        binding.bottomNav.visibility = View.GONE
+        init()
         binding.retryButton.setOnClickListener {init()}
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -61,6 +60,11 @@ class MainActivity : AppCompatActivity() {
             binding.retryButton.visibility = View.GONE
             binding.noInternetText.visibility = View.GONE
             initClickListeners()
+        }else{
+            binding.retryButton.visibility=View.VISIBLE
+            binding.noInternetText.visibility=View.VISIBLE
+            binding.bottomNav.visibility = View.GONE
+            binding.fragmentContainer.visibility = View.GONE
         }
     }
 
