@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onefin.R
 import com.example.onefin.databinding.FragmentCurrencyBinding
 import com.example.onefin.domain.model.Money
+import com.example.onefin.presentation.activities.MainActivity
 import com.example.onefin.presentation.adapters.CurrencyAdapter
 import com.example.onefin.presentation.view_models.CurrencyViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -68,19 +69,23 @@ class CurrencyFragment : Fragment() {
     }
 
     private fun init() {
-        if(list.isEmpty()){
-            viewModel.init().invokeOnCompletion {
-                activity?.runOnUiThread {
-                    initAdapter()}
-            }
+            if (list.isEmpty()) {
+                viewModel.init().invokeOnCompletion {
+                    activity?.runOnUiThread {
+                        initAdapter()
+                    }
+                }
+            } else initAdapter()
+
         }
-        else initAdapter()
-    }
+
+
 
 
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
+
 
 }
