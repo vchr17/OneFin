@@ -24,6 +24,7 @@ class ExchangeViewModel(private val getData: GetDataUseCase) : ViewModel() {
         mainText: Double,
         secondarySpinnerValue: String,
     ): Double? {
+
         val moneyValue = list.find { it.name == mainSpinnerValue }
         var value: Double? = 0.00
         when {
@@ -60,13 +61,16 @@ class ExchangeViewModel(private val getData: GetDataUseCase) : ViewModel() {
                     value = byn * secondValue
                 }
             }
+
         }
         return value
     }
 
     private suspend fun getData() {
+        if (list.isEmpty()){
         list.addAll(getData.invoke())
         _liveData.postValue(list)
+        }
     }
 
     fun getNames(data: MutableList<Money>): MutableList<String> {

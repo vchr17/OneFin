@@ -1,5 +1,6 @@
 package com.example.onefin.presentation.fragments
 
+import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -53,15 +54,18 @@ class ExchangeFragment : Fragment() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val df = DecimalFormat("#.##")
                 val text = binding.valueMainEditText.text.toString()
                 if (text.isBlank()) {
                     binding.valueMainEditText.setText("0")
-                } else
-                    binding.valueText.text = viewModel.exchange(
+                } else {
+                    val value = viewModel.exchange(
                         mainSpinnerValue!!,
                         binding.valueMainEditText.text.toString().toDouble(),
                         secondarySpinnerValue!!
-                    ).toString()
+                    )
+                    binding.valueText.text = df.format(value)
+                }
             }
 
             override fun afterTextChanged(p0: Editable?) {

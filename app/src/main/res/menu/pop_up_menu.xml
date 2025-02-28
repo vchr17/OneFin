@@ -3,11 +3,11 @@
 
     <item
         android:id="@+id/add_to_favourites"
-        android:title="Add to favourites"/>
+        android:title="@string/add_to_favourites_pop_up_menu"/>
 
     <item
         android:id="@+id/share_button"
-        android:title="Share"
+        android:title="@string/share_pop_up"
         />
 
 </menu>

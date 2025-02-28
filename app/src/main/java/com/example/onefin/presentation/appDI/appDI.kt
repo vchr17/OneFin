@@ -14,14 +14,15 @@ val appModule = module {
             fetchData = get(),
             readData = get(),
             addData = get(),
-            deleteData = get(),
             setFavourite = get(),
+            updateCurrency = get()
         )
     }
 
     viewModel<FavouritesViewModel>{
         FavouritesViewModel(
-            getFavourite = get()
+            getFavourite = get(),
+            setFavourite = get()
         )
     }
 

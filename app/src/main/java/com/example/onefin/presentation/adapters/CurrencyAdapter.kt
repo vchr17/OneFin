@@ -1,9 +1,9 @@
 package com.example.onefin.presentation.adapters
 
+import android.content.Context
 import android.icu.text.DecimalFormat
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -16,7 +16,6 @@ class CurrencyAdapter(moneyList: MutableList<Money>, viewModel: CurrencyViewMode
     RecyclerView.Adapter<CurrencyAdapter.CurrencyHolder>() {
     private var list = moneyList
     private val vm = viewModel
-    private var listener : OnItemClickListener? = null
 
     class CurrencyHolder(binding: RcValueBinding) : ViewHolder(binding.root) {
         private val name = binding.valueName
@@ -54,7 +53,13 @@ class CurrencyAdapter(moneyList: MutableList<Money>, viewModel: CurrencyViewMode
                     }
 
                     R.id.share_button -> {
-
+                        vm.shareText(
+                            parseText(
+                                list[position].name,
+                                list[position].value,
+                                view.context
+                            )
+                        )
                         true
                     }
 
@@ -65,6 +70,19 @@ class CurrencyAdapter(moneyList: MutableList<Money>, viewModel: CurrencyViewMode
             true
         }
 
+    }
+
+    private fun parseText(name: String, cost: Double, context: Context): String {
+        val df = DecimalFormat("#.##")
+        if (cost > 1) {
+            val value = df.format(cost)
+            val text = context.getString(R.string.first_share_format, value, name)
+            return text
+        } else {
+            val value = df.format(1 / cost)
+            val text = context.getString(R.string.second_share_format, name, value)
+            return text
+        }
     }
 }
 
