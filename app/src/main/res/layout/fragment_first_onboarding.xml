@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.fragments.FirstOnboardingFragment">
+
+
+   <androidx.appcompat.widget.AppCompatImageView
+       android:id="@+id/clouds"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:srcCompat="@drawable/clouds" />
+
+   <com.google.android.material.floatingactionbutton.FloatingActionButton
+       android:id="@+id/that_one"
+       android:layout_width="56dp"
+       android:layout_height="56dp"
+       android:layout_marginTop="210dp"
+       app:backgroundTint="@color/material_dynamic_primary95"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/clouds"
+       android:src="@drawable/favorites_icon"
+       android:clickable="false"
+       />
+
+   <TextView
+       android:id="@+id/title_first_onboarding"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="50dp"
+       android:fontFamily="sans-serif-thin"
+       android:text="@string/first_onboarding_title_text"
+       android:textAlignment="center"
+       android:textSize="23sp"
+       android:textStyle="bold"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/that_one" />
+
+   <TextView
+       android:id="@+id/content_first_onboarding"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/first_onboarding_text"
+       android:textAlignment="center"
+       android:textSize="15sp"
+       android:textStyle="italic"
+       android:layout_marginTop="20dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/title_first_onboarding" />
+
+   <com.google.android.material.button.MaterialButton
+       android:id="@+id/first_onboarding_next_button"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       android:layout_marginBottom="16dp"
+       android:layout_marginEnd="16dp"
+       android:text="@string/next_button"
+       android:textSize="16sp"
+       style="@style/Widget.Material3.Button.IconButton.Outlined"
+       />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
