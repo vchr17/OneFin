@@ -1,6 +1,11 @@
 package com.example.onefin.presentation.activities
 
+import android.app.Activity
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initClickListeners()
+        binding.fragmentContainer.visibility = View.GONE
+        binding.bottomNav.visibility = View.GONE
+        binding.retryButton.setOnClickListener {init()}
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(
@@ -33,6 +40,30 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
+    private fun isInternetAvailable(context: Context):Boolean{
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ->
+                true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)->
+                true
+            else -> false
+        }
+    }
+
+    private fun init(){
+        if (isInternetAvailable(this)){
+            binding.bottomNav.visibility = View.VISIBLE
+            binding.fragmentContainer.visibility = View.VISIBLE
+            binding.retryButton.visibility = View.GONE
+            binding.noInternetText.visibility = View.GONE
+            initClickListeners()
+        }
+    }
+
 
     private fun initClickListeners() {
         val bottomNavigationBar = binding.bottomNav

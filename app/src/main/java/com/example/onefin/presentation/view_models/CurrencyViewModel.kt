@@ -1,5 +1,8 @@
 package com.example.onefin.presentation.view_models
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -112,6 +115,7 @@ class CurrencyViewModel(
         }
         return list
     }
+
 
 
 fun setFavorite(name: String) = viewModelScope.launch(Dispatchers.IO) {

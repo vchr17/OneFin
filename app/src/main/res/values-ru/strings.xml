@@ -22,4 +22,6 @@
     <string name="add_to_favourites_pop_up_menu">Добавить в избранные</string>
     <string name="share_pop_up">Поделиться</string>
     <string name="remove_from_favourites">Убрать из избранных</string>
+    <string name="retry">Повторить</string>
+    <string name="no_internet_connection">Нет соединения с интернетом</string>
 </resources>

@@ -7,6 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".presentation.activities.MainActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/retry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retry"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/no_internet_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="@string/no_internet_connection"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/retry_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
