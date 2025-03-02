@@ -67,8 +67,9 @@ class CurrencyViewModel(
                 val response = async { fetch() }
                 val list = parse(response.await())
                 _liveData.postValue(list)
+                Log.d("update", "update")
                 list.forEach{money->
-                    updateCurrency.invoke(money.name, money.value)
+                    updateCurrency.invoke(money.name, money.stamp, money.value)
                 }
                 addData(list)
             }
@@ -78,6 +79,7 @@ class CurrencyViewModel(
 
     private suspend fun isDbEmpty(): Boolean {
         val data = readData.invoke()
+        Log.d("db", "DbIsEmpty")
         if (data.isEmpty()) {
             return true
         } else return false
@@ -97,6 +99,7 @@ class CurrencyViewModel(
         val stampFormated = sdf.format(stamp)
         val currentDate = System.currentTimeMillis()
         val systemDate = sdf.format(currentDate)
+        Log.d("dataFresh", "DataFresh")
         if (stampFormated == systemDate) {
             return true
         } else return false
