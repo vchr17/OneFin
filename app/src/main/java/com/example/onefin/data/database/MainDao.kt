@@ -14,8 +14,8 @@ interface MainDao {
     @Query("UPDATE CurrencyTable SET isFavourite =:ifFavourite WHERE name =:name")
     fun setFavourite(name : String, ifFavourite: Int)
 
-    @Query("UPDATE CurrencyTable SET value =:currency WHERE name =:name ")
-    fun updateCurrency(name: String, currency: Double)
+    @Query("UPDATE CurrencyTable SET value =:currency, stamp=:stamp WHERE name =:name ")
+    fun updateCurrency(name: String, stamp: Long, currency: Double)
 
     @Query("SELECT * FROM CurrencyTable")
     fun getData() : MutableList<Money>
