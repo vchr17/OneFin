@@ -3,6 +3,7 @@ package com.example.onefin.presentation.view_models
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -65,11 +66,11 @@ class CurrencyViewModel(
             } else {
                 val response = async { fetch() }
                 val list = parse(response.await())
+                _liveData.postValue(list)
                 list.forEach{money->
                     updateCurrency.invoke(money.name, money.value)
                 }
                 addData(list)
-                _liveData.postValue(list)
             }
         }
     }
