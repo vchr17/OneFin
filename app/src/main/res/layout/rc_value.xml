@@ -16,14 +16,23 @@
         android:layout_marginEnd="4dp"
         >
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/flag_view"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/value_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="45dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="left"
+            android:layout_marginTop="15dp"
+            android:gravity="start"
             android:textSize="20sp"
             android:textStyle="italic" />
 
@@ -31,10 +40,10 @@
             android:id="@+id/value_cost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="end"
             android:layout_marginStart="225dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="25dp"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.onefin.R
 import com.example.onefin.databinding.RcValueBinding
 import com.example.onefin.domain.model.Money
@@ -19,11 +20,18 @@ class FavouritesAdapter(moneyList: MutableList<Money>, viewModel: FavouritesView
 
     class FavouritesHolder(binding: RcValueBinding) :
         ViewHolder(binding.root) {
-
-        private val df = DecimalFormat("#.##")
         private val name = binding.valueName
         private val value = binding.valueCost
+        private val flag = binding.flagView
         fun setData(money: Money) {
+            val df = DecimalFormat("#.##")
+            val flagUri : String
+            if(money.name != "EUR"){
+                val flagName = money.name.substring(0,2).lowercase()
+                flagUri = "flags/w580/$flagName.webp"
+            }else flagUri = "org/w580/eu.webp"
+            val uri = "https://www.flagistrany.ru/data/$flagUri"
+            Glide.with(itemView.context).load(uri).into(flag)
             name.text = money.name
             if (money.value > 1) {
                 value.text = df.format(money.value) + money.name
@@ -51,7 +59,7 @@ class FavouritesAdapter(moneyList: MutableList<Money>, viewModel: FavouritesView
             menu.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.delete_from_favourites -> {
-                       vm.removeFromFavourites(list[position].name, 0)
+                        vm.removeFromFavourites(list[position].name, 0)
                         list.removeAt(position)
                         notifyItemRemoved(position)
                         true
