@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">OneFin</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_onboarding_title_text">Вы никогда не пропустите \n самое важное</string>
+    <string name="first_onboarding_text">Добавляйте свои любимые валюты в список избранных, \n что бы всегда быть в курсе их текущего состояния</string>
+    <string name="next_button">Далее</string>
+    <string name="second_onboarding_title">Один раз - для всех</string>
+    <string name="Second_onboarding_text">Установите одно значение, что бы увидеть\nобменный курс для всех остальных валют</string>
+    <string name="get_started_button">Начать</string>
+    <string name="menu_title_currency">Курсы валюты</string>
+    <string name="menu_title_exchange">Обменный курс</string>
+    <string name="menu_title_favorites">Избранные</string>
+    <string name="first_fragment_label">Первый фрагмент</string>
+    <string name="second_fragment_label">Второй фрагмент</string>
+    <string name="next">Далее</string>
+    <string name="previous">Назад</string>
+    <string name="first_share_format">Один BYN равен %1$s%2$s</string>
+    <string name="second_share_format">Одна единица %1$s равна %2$s BYN</string>
+    <string name="unuseable_intent">Нет приложений, которые могут использовать данное намерение</string>
+    <string name="enter_value_exchange">Введите сумму:</string>
+    <string name="value_exchange_hint">Сумма на выходе:</string>
+    <string name="add_to_favourites_pop_up_menu">Добавить в избранные</string>
+    <string name="share_pop_up">Поделиться</string>
+    <string name="remove_from_favourites">Убрать из избранных</string>
+    <string name="retry">Повторить</string>
+    <string name="no_internet_connection">Нет соединения с интернетом</string>
+    <string name="Currency_for_byn">за 1 BYN</string>
+    <string name="currency_for_foreign">за 1 %1$s</string>
+</resources>

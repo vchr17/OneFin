@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">OneFin</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_onboarding_title_text">You\'ll never miss \n anything important</string>
+    <string name="first_onboarding_text">Add your favorite currencies to favorites list, \n to always be aware of their \n current status</string>
+    <string name="next_button">Next</string>
+    <string name="second_onboarding_title">Once - for all</string>
+    <string name="Second_onboarding_text">Set one value to see all currencies avaliable</string>
+    <string name="get_started_button">Get Started</string>
+    <string name="menu_title_currency">Currency</string>
+    <string name="menu_title_exchange">Exchange rate</string>
+    <string name="menu_title_favorites">Favorites</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="first_share_format">One BYN equals %1$s%2$s</string>
+    <string name="second_share_format">One %1$s equals %2$s BYN</string>
+    <string name="unuseable_intent">no app that can use that intent</string>
+    <string name="enter_value_exchange">Enter value here:</string>
+    <string name="value_exchange_hint">Value here:</string>
+    <string name="add_to_favourites_pop_up_menu">Add to favourites</string>
+    <string name="share_pop_up">Share</string>
+    <string name="remove_from_favourites">Remove from favourites</string>
+    <string name="retry">Retry</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="Currency_for_byn">for 1 BYN</string>
+    <string name="currency_for_foreign">for 1 %1$s</string>
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/currency">
+    <fragment
+        android:id="@+id/currency"
+        android:name="com.example.onefin.presentation.fragments.CurrencyFragment"
+        android:label="fragment_currency"
+        tools:layout="@layout/fragment_currency">
+        <action
+            android:id="@+id/action_currencyFragment_to_exchangeFragment"
+            app:destination="@id/exchange"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/currency" />
+        <action
+            android:id="@+id/action_currencyFragment_to_favoritesFragment"
+            app:destination="@id/favorites"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/currency" />
+    </fragment>
+    <fragment
+        android:id="@+id/exchange"
+        android:name="com.example.onefin.presentation.fragments.ExchangeFragment"
+        android:label="fragment_exchange"
+        tools:layout="@layout/fragment_exchange" >
+        <action
+            android:id="@+id/action_exchangeFragment_to_favoritesFragment"
+            app:destination="@id/favorites"
+            app:popEnterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_exchange_to_currency"
+            app:destination="@id/currency"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.onefin.presentation.fragments.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_exchangeFragment"
+            app:destination="@id/exchange"
+            app:popEnterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_favorites_to_currency"
+            app:destination="@id/currency"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+</navigation>
