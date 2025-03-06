@@ -22,6 +22,7 @@ class CurrencyAdapter(moneyList: MutableList<Money>, viewModel: CurrencyViewMode
         private val name = binding.valueName
         private val value = binding.valueCost
         private val flag = binding.flagView
+        private val hint = binding.hintText
         fun setData(money: Money) {
             val df = DecimalFormat("#.##")
             val flagUri : String
@@ -34,8 +35,10 @@ class CurrencyAdapter(moneyList: MutableList<Money>, viewModel: CurrencyViewMode
             name.text = money.name
             if (money.value > 1) {
                 value.text = df.format(money.value) + money.name
+                hint.hint = itemView.context.getString(R.string.Currency_for_byn)
             } else {
                 value.text = df.format(1 / money.value) + "BYN"
+                hint.hint = itemView.context.getString(R.string.currency_for_foreign, money.name)
             }
         }
     }
