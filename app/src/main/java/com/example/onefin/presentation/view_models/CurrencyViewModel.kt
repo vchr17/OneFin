@@ -1,8 +1,5 @@
 package com.example.onefin.presentation.view_models
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,10 +9,8 @@ import com.example.onefin.domain.model.Money
 import com.example.onefin.domain.model.Response
 import com.example.onefin.domain.use_cases.DataFetch
 import com.example.onefin.domain.use_cases.crud.create.AddDataUseCase
-import com.example.onefin.domain.use_cases.crud.delete.DeleteDataUseCase
 import com.example.onefin.domain.use_cases.crud.read.GetDataUseCase
-import com.example.onefin.domain.use_cases.crud.read.GetFavouritesUseCase
-import com.example.onefin.domain.use_cases.crud.update.SetFavouriteUseCase
+import com.example.onefin.domain.use_cases.crud.update.SetFavouriteStatusUseCase
 import com.example.onefin.domain.use_cases.crud.update.UpdateCurrencyUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -27,7 +22,7 @@ class CurrencyViewModel(
     private val fetchData: DataFetch,
     private val addData: AddDataUseCase,
     private val readData: GetDataUseCase,
-    private val setFavourite: SetFavouriteUseCase,
+    private val setFavourite: SetFavouriteStatusUseCase,
     private val updateCurrency : UpdateCurrencyUseCase
 ) : ViewModel() {
     private val _liveData = MutableLiveData<MutableList<Money>>()

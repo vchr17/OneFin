@@ -5,14 +5,14 @@ import com.example.onefin.data.use_cases.crud.create.AddDataUseCaseImpl
 import com.example.onefin.data.use_cases.crud.delete.DeleteDataUseCaseImpl
 import com.example.onefin.data.use_cases.crud.read.GetDataUseCaseImpl
 import com.example.onefin.data.use_cases.crud.read.GetFavouritesUseCaseImpl
-import com.example.onefin.data.use_cases.crud.update.SetFavouriteUseCaseImpl
+import com.example.onefin.data.use_cases.crud.update.SetFavouriteStatusUseCaseImpl
 import com.example.onefin.data.use_cases.crud.update.UpdateCurrencyUseCaseImpl
 import com.example.onefin.domain.use_cases.DataFetch
 import com.example.onefin.domain.use_cases.crud.create.AddDataUseCase
 import com.example.onefin.domain.use_cases.crud.delete.DeleteDataUseCase
 import com.example.onefin.domain.use_cases.crud.read.GetDataUseCase
 import com.example.onefin.domain.use_cases.crud.read.GetFavouritesUseCase
-import com.example.onefin.domain.use_cases.crud.update.SetFavouriteUseCase
+import com.example.onefin.domain.use_cases.crud.update.SetFavouriteStatusUseCase
 import com.example.onefin.domain.use_cases.crud.update.UpdateCurrencyUseCase
 import org.koin.dsl.module
 
@@ -42,8 +42,8 @@ val domainModule = module {
         GetFavouritesUseCaseImpl(dao = get())
     }
 
-    factory<SetFavouriteUseCase>{
-        SetFavouriteUseCaseImpl(dao = get())
+    factory<SetFavouriteStatusUseCase>{
+        SetFavouriteStatusUseCaseImpl(dao = get())
     }
 
 
