@@ -31,35 +31,23 @@ class ExchangeViewModel(private val getData: GetDataUseCase) : ViewModel() {
             moneyValue!!.value < 1 -> {
                 byn =
                     mainText / moneyValue.value
-                val sec = list.find { it.name == secondarySpinnerValue }
-                val secondValue = sec!!.value
-                if (secondValue < 1) {
+                val secondCurrency = list.find { it.name == secondarySpinnerValue }
+                val secondValue = secondCurrency!!.value
                     value = byn * secondValue
-                } else {
-                    value = byn * secondValue
-                }
             }
 
             moneyValue.value > 1 && moneyValue.value <10 -> {
                 byn =
                     mainText * moneyValue.value
-                val sec = list.find { it.name == secondarySpinnerValue }
-                val secondValue = sec!!.value
-                if (secondValue < 1) {
+                val secondCurrency = list.find { it.name == secondarySpinnerValue }
+                val secondValue = secondCurrency!!.value
                     value = byn * secondValue
-                } else {
-                    value = byn * secondValue
-                }
             }
             moneyValue.value > 10 -> {
                 byn = mainText / moneyValue.value
-                val sec = list.find { it.name == secondarySpinnerValue }
-                val secondValue = sec!!.value
-                if (secondValue < 1) {
+                val secondCurrency = list.find { it.name == secondarySpinnerValue }
+                val secondValue = secondCurrency!!.value
                     value = byn * secondValue
-                } else {
-                    value = byn * secondValue
-                }
             }
 
         }

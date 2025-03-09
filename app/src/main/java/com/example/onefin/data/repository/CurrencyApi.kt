@@ -1,4 +1,4 @@
-package com.example.onefin.data.database
+package com.example.onefin.data.repository
 
 import com.example.onefin.domain.model.Response
 import retrofit2.http.GET

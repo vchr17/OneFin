@@ -25,4 +25,6 @@
     <string name="remove_from_favourites">Remove from favourites</string>
     <string name="retry">Retry</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="Currency_for_byn">for 1 BYN</string>
+    <string name="currency_for_foreign">for 1 %1$s</string>
 </resources>
