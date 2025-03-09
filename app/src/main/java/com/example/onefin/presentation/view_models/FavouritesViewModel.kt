@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onefin.domain.model.Money
 import com.example.onefin.domain.use_cases.crud.read.GetFavouritesUseCase
-import com.example.onefin.domain.use_cases.crud.update.SetFavouriteUseCase
+import com.example.onefin.domain.use_cases.crud.update.SetFavouriteStatusUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class FavouritesViewModel(private val getFavourite : GetFavouritesUseCase,
-    private val setFavourite: SetFavouriteUseCase
+    private val setFavourite: SetFavouriteStatusUseCase
     ) : ViewModel() {
 
     private val _liveData = MutableLiveData<MutableList<Money>>()

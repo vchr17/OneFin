@@ -26,7 +26,6 @@
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/value_main_spinner"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/eFrag_sec_spinner_margin_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/value_main_spinner" />
 
@@ -43,9 +42,9 @@
         android:id="@+id/value_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="@dimen/eFrag_second_textview_margin_top"
         android:hint="@string/value_exchange_hint"
-        android:textSize="20sp"
+        android:textSize="@dimen/eFrag_second_textview_text_size"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/value_secondary_spinner"
