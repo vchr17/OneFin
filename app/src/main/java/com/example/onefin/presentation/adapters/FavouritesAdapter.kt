@@ -65,6 +65,7 @@ class FavouritesAdapter(moneyList: MutableList<Money>, viewModel: FavouritesView
                         vm.removeFromFavourites(list[position].name, 0)
                         list.removeAt(position)
                         notifyItemRemoved(position)
+                        notifyItemRangeChanged(0, list.size)
                         true
                     }
 
