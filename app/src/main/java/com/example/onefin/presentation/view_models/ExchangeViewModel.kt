@@ -27,27 +27,29 @@ class ExchangeViewModel(private val getData: GetDataUseCase) : ViewModel() {
 
         val moneyValue = list.find { it.name == mainSpinnerValue }
         var value: Double? = 0.00
-        when {
-            moneyValue!!.value < 1 -> {
-                byn =
-                    mainText / moneyValue.value
-                val secondCurrency = list.find { it.name == secondarySpinnerValue }
-                val secondValue = secondCurrency!!.value
-                    value = byn * secondValue
-            }
-
-            moneyValue.value > 1 && moneyValue.value <10 -> {
+        when (moneyValue!!.name) {
+            "PLN", "CNY", "CZK", "BRL", "AED" -> {
                 byn =
                     mainText * moneyValue.value
                 val secondCurrency = list.find { it.name == secondarySpinnerValue }
                 val secondValue = secondCurrency!!.value
-                    value = byn * secondValue
+                when (secondCurrency.name) {
+                    "PLN", "CNY", "CZK", "BRL", "AED" -> {
+                        value = byn / secondValue
+                    }
+
+                    else -> {
+                        value = byn * secondValue
+                    }
+
+                }
             }
-            moneyValue.value > 10 -> {
+
+            else -> {
                 byn = mainText / moneyValue.value
                 val secondCurrency = list.find { it.name == secondarySpinnerValue }
                 val secondValue = secondCurrency!!.value
-                    value = byn * secondValue
+                value = byn * secondValue
             }
 
         }
@@ -55,9 +57,9 @@ class ExchangeViewModel(private val getData: GetDataUseCase) : ViewModel() {
     }
 
     private suspend fun getData() {
-        if (list.isEmpty()){
-        list.addAll(getData.invoke())
-        _liveData.postValue(list)
+        if (list.isEmpty()) {
+            list.addAll(getData.invoke())
+            _liveData.postValue(list)
         }
     }
 
