@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="eFrag_sec_spinner_margin_top">20dp</dimen>
+    <dimen name="eFrag_second_textview_margin_top">10dp</dimen>
+    <dimen name="eFrag_second_textview_text_size">20sp</dimen>
+    <dimen name="aMain_no_internet_tSize">17sp</dimen>
+</resources>
